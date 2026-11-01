@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root { --bg:#f4f5fb; --fg:#12162b; --card:rgba(255,255,255,.75); --bd:rgba(0,0,0,.08); --mute:#667; }
+.dark { --bg:#080a1a; --fg:#e8eaff; --card:rgba(255,255,255,.05); --bd:rgba(255,255,255,.1); --mute:#9aa3c7; }
+body { background: var(--bg); color: var(--fg); font-family: Inter, system-ui, sans-serif; }
+body::before { content:''; position:fixed; inset:0; z-index:-1;
+  background: radial-gradient(600px circle at 10% 0%, rgba(139,92,246,.25), transparent 60%),
+              radial-gradient(500px circle at 90% 20%, rgba(34,211,238,.18), transparent 60%),
+              radial-gradient(500px circle at 50% 100%, rgba(74,222,128,.12), transparent 60%); }
+@layer components {
+  .glass { @apply rounded-2xl backdrop-blur-xl; background: var(--card); border: 1px solid var(--bd); }
+  .grad-text { @apply bg-clip-text text-transparent bg-gradient-to-r from-violet-400 via-cyan-300 to-emerald-300; }
+  .btn { @apply rounded-xl px-4 py-2 text-sm font-semibold text-white transition active:scale-95 disabled:opacity-50 bg-gradient-to-r from-violet-500 via-cyan-500 to-emerald-400 hover:brightness-110; }
+  .btn-ghost { @apply rounded-xl px-3 py-2 text-sm transition hover:bg-white/10; border: 1px solid var(--bd); }
+  .input { @apply w-full rounded-xl px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-violet-400; background: var(--card); border: 1px solid var(--bd); color: var(--fg); }
+  .input option { color: #111; }
+  .mute { color: var(--mute); }
+}
